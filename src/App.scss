@@ -1,0 +1,11 @@
+@import './globalStyles/global.scss';
+@import './globalStyles/mixins';
+
+.App{
+    .container{
+        padding: toRem(16);
+        @include mdMinBreakPoint{
+            padding: toRem(32);
+        }
+    }
+}

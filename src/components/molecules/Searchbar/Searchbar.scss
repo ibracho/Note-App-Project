@@ -1,0 +1,27 @@
+@import '../../../globalStyles/variables';
+@import '../../../globalStyles/functions';
+
+.searchbar{
+    background-color: $white;
+    padding: toRem(17);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: toRem(0) toRem(4) toRem(20) toRem(0) rgba(0, 0, 0, 0.15);
+
+    .input{
+        margin-right: toRem(10);
+        width: 80%;
+    }
+
+    .button--icon{
+        margin-left: toRem(-55);
+        margin-right: toRem(24);
+    }
+
+    &--empty{
+        .button--icon{
+            display: none;
+        }
+    }
+}

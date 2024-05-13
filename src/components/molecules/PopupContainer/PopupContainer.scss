@@ -1,0 +1,19 @@
+@import '../../../globalStyles/variables';
+@import '../../../globalStyles/functions';
+@import '../../../globalStyles/mixins';
+
+.popup-container{
+    display: none; 
+
+    &--open{
+        display: block;
+    }
+    .backdrop{
+        height: 100vh;
+        width: 100vw;
+        background: $black-32opacity;
+        position: fixed;
+        left: 0;
+        top: 0;
+    }
+}

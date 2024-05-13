@@ -1,0 +1,47 @@
+@import '../../../globalStyles/variables';
+@import '../../../globalStyles/functions';
+@import '../../../globalStyles/mixins';
+
+.delete-note{
+    z-index: 1;
+    background-color: $white;
+    border-radius: toRem(16);
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: toRem(24);
+    width: 90%;
+
+    @include mdMinBreakPoint{
+        width: auto;
+    }
+
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: toRem(24);
+
+        svg{
+            cursor: pointer;
+        }
+        .button{
+            padding: 0;
+        }
+    }
+
+    &__text{
+        margin-bottom: toRem(24);
+    }
+
+    &__ctas{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+
+        @include mdMinBreakPoint{
+            flex-direction: row;
+        }
+    }
+}

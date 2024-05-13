@@ -1,0 +1,16 @@
+@import '../../../globalStyles/variables';
+@import '../../../globalStyles/functions';
+
+.empty-state{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: toRem(48);
+    width: 100%;
+    &__image{
+        svg{
+            fill: none;
+        }
+    }
+}

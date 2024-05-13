@@ -1,0 +1,20 @@
+@import '../../../globalStyles/variables';
+@import '../../../globalStyles/functions';
+
+.input{
+    padding: toRem(12);
+    border-radius: toRem(8);
+    border: toRem(1) solid $black-12opacity;
+    background-color: $lightGray;
+    font-family: $primary-font;
+    font-size: toRem(16);
+    &:active{
+        border: toRem(1) solid $blue400; 
+    }
+
+    &--with-icon{
+        background-repeat: no-repeat;
+        background-position: toRem(10);
+        padding-left: toRem(40);
+    }
+}

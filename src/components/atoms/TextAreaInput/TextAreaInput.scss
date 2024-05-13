@@ -1,0 +1,15 @@
+@import '../../../globalStyles/variables';
+@import '../../../globalStyles/functions';
+
+.textarea{
+    padding: toRem(12);
+    border-radius: toRem(8);
+    border: toRem(1) solid $black-12opacity;
+    background-color: $lightGray;
+    font-family: $primary-font;
+    font-size: toRem(16);
+    width: 100%;
+    &:active{
+        border: toRem(1) solid $blue400; 
+    }
+}

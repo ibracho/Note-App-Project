@@ -1,0 +1,59 @@
+@import '../../../globalStyles/variables';
+@import '../../../globalStyles/functions';
+@import '../../../globalStyles/mixins';
+
+.new-note{
+    z-index: 1;
+    background-color: $white;
+    border-radius: toRem(16);
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: toRem(24);
+    width: 90%;
+
+    @include mdMinBreakPoint{
+        width: auto;
+    }
+
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: toRem(24);
+
+        svg{
+            cursor: pointer;
+        }
+    }
+
+    &__input-groups{
+        display: flex;
+        flex-direction: column;
+
+        &--space-between{
+            justify-content: space-between;
+        }
+
+        &--flex-end{
+            justify-content: flex-end;
+            margin-top: toRem(24);
+            flex-direction: column-reverse;
+        }
+
+        @include mdMinBreakPoint{
+            flex-direction: row;
+            width: toRem(600);
+        }
+
+        .input-group{
+            width: 100%;
+            margin-bottom: toRem(24);
+            @include mdMinBreakPoint{
+                width: 48%;
+            }
+        }
+    }
+}

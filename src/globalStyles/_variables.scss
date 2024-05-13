@@ -1,0 +1,36 @@
+//Font
+$primary-font: 'Roboto', sans-serif;
+
+//Colors
+$gray900:#212121;
+$gray900-87opacity:rgba(33, 33, 33, 0.87);
+$gray900-60opacity:rgba(33, 33, 33, 0.60);
+$gray900-36opacity:rgba(33, 33, 33, 0.36);
+$lightGray: #EEEEEE;
+$gray600: #757575;
+$black-12opacity: rgba(0, 0, 0, 0.12);
+$black-24opacity: rgba(0, 0, 0, 0.24);
+$black-32opacity: rgba(0, 0, 0, 0.32);
+$white:#FFFFFF;
+$white-24opacity: rgba(255, 255, 255, 0.24);
+$blue400: #42A5F5;
+$blue500: #2196F3;
+$orange900: #E65100;
+$orange200: #FFCC80;
+$green200: #A5D6A7;
+$green900: #1B5E20;
+$purple200: #B39DDB;
+$purple900: #4527A0;
+$red400: #EF5350;
+$red500: #F44336;
+
+
+// Screen sizes
+$screen-sm: toRem(576);
+$screen-md: toRem(768);
+$screen-lg: toRem(992);
+$screen-xl: toRem(1280);
+$screen-xxl: toRem(1300);
+$screen-full: toRem(1400);
+
+

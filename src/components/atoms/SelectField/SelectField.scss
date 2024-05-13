@@ -1,0 +1,68 @@
+@import '../../../globalStyles/variables';
+@import '../../../globalStyles/functions';
+
+.select{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    &__button{
+        padding: toRem(12);
+        border-radius: toRem(8);
+        border: toRem(1) solid $black-12opacity;
+        background-color: $lightGray;
+        font-family: $primary-font;
+        font-size: toRem(16);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-width: toRem(150);
+    }
+
+    ul{
+        display: none;
+        box-shadow: 0 0 #0000,0 0 #0000, 0 4px 6px -1px rgb(0 0 0 / .1), 0 2px 4px -2px rgb(0 0 0 / .1);
+        border-radius: toRem(8);
+        li{
+            padding: toRem(16) toRem(12);
+            cursor: pointer;
+            list-style-type: none;
+        }
+    }
+
+    &--open{
+        .select__button{
+            border: toRem(1) solid $blue400; 
+
+            svg{
+                transform: rotate(180deg)
+            }
+        }
+        ul{
+            display: block;
+            position: absolute;
+            width: 100%;
+            z-index: 2;
+            background-color: white;
+            top: toRem(54);
+
+            li{
+                &:hover{
+                    background-color: $blue400;
+                    color: $white;
+                }
+                &:first-child:hover{
+                
+                    border-top-left-radius: toRem(8);
+                    border-top-right-radius: toRem(8);
+                }
+    
+                &:last-child:hover{
+                    border-bottom-left-radius: toRem(8);
+                    border-bottom-right-radius: toRem(8);
+                }
+            }
+        }
+    }
+}

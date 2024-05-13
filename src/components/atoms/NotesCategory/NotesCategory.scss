@@ -1,0 +1,24 @@
+@import '../../../globalStyles/variables';
+@import '../../../globalStyles/functions';
+
+.category{
+    padding: toRem(12) toRem(16);
+    border-radius: toRem(28);
+    font-size: toRem(14);
+    line-height: toRem(24);
+
+    &--personal{
+        background-color: $orange200;
+        color: $orange900;
+    }
+
+    &--home{
+        background-color: $green200;
+        color: $green900;
+    }
+
+    &--business{
+        background-color: $purple200;
+        color: $purple900;
+    }
+}

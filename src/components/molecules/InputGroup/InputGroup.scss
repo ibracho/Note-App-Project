@@ -1,0 +1,28 @@
+@import '../../../globalStyles/variables';
+@import '../../../globalStyles/functions';
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+
+    &__label-container{
+        display: flex;
+        justify-content: space-between;
+        
+        label{
+            margin-bottom: toRem(5);
+        }
+    }
+
+    &__word-count{
+        &--over{
+            color: $red400;
+        }
+    }
+
+    &__error{
+        font-size: toRem(12);
+        color: $red400;
+        margin-top: toRem(8);
+    }
+}
