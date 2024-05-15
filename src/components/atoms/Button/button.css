@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.button {
+    padding: toRem(12) toRem(19);
+    border-radius: toRem(56);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: toRem(16);
+    line-height: toRem(24);
+    background-color: transparent;
+}
+
+.button--primary {
+    background-color: #42A5F5;
+    color: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button--primary:hover {
+    background-color: #2196F3;
+}
+
+.button--primary svg {
+    width: toRem(18);
+    height: toRem(18);
+    fill: #ffff;
+    margin-right: toRem(10);
+}
+
+.button--ghost {
+    color: #757575;
+}
+
+.button--ghost:hover {
+    color: rgba(33, 33, 33, 0.87);
+}
+
+.button--danger {
+    background-color: #EF5350;
+    color: #ffff;
+}
+
+.button--danger:hover {
+    background-color: #F44336;
+}
+
+.button--icon {
+    padding: toRem(8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button--icon svg {
+    width: toRem(24);
+    fill: #757575;
+    height: toRem(24);
+}
+
+.button--icon:hover {
+    background-color: rgba(0, 0, 0, 0.12);
+}

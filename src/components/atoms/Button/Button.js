@@ -1,9 +1,10 @@
-import './Button.scss';
+import "./Button.scss";
+// import "./button.css";
 
-function Button({text, icon, buttonType, clickHandler}) {
+function Button({ text, icon, buttonType, clickHandler }) {
   return (
     <button className={`button button--${buttonType}`} onClick={clickHandler}>
-      {icon ? icon: ''}
+      {icon ? icon : ""}
       {text}
     </button>
   );

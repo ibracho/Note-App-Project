@@ -5,109 +5,124 @@ const initialState = {
   noteForm: {
     isNotesFormOpen: false,
     isEditState: false,
-    editNoteId: ""
+    editNoteId: "",
   },
-  filterNotesBy : {
+  filterNotesBy: {
     text: "",
     category: "",
-    showCompletedOnly: false
+    showCompletedOnly: false,
   },
-  categories:[{value: 'home', displayValue:'Home'}, {value: 'business', displayValue:'Business'}, {value: 'personal', displayValue:'Personal'}]
+  categories: [
+    { value: "home", displayValue: "Home" },
+    { value: "business", displayValue: "Business" },
+    { value: "personal", displayValue: "Personal" },
+  ],
 };
 
 const notesReducers = createSlice({
   name: "notes",
-  
+
   initialState,
-  
+
   reducers: {
     addNotes: (state, action) => {
       const newState = {
         ...state,
-        notes: [...state.notes, action.payload]
-      }
-      window.localStorage.setItem("notes", JSON.stringify(newState.notes))
+        notes: [...state.notes, action.payload],
+      };
+      window.localStorage.setItem("notes", JSON.stringify(newState.notes));
       return newState;
     },
     editNotes: (state, action) => {
       const newState = {
-        ...state, 
+        ...state,
         notes: state.notes.map((note) => {
-          if(note.id === action.payload.id){
+          if (note.id === action.payload.id) {
             return {
               ...note,
               title: action.payload.title,
               category: action.payload.category,
               description: action.payload.description,
-              date: action.payload.date
-            }
+              date: action.payload.date,
+              userId: action.payload.userId,
+            };
           }
           return note;
-        })
-      }
-      window.localStorage.setItem("notes", JSON.stringify(newState.notes))
+        }),
+      };
+      window.localStorage.setItem("notes", JSON.stringify(newState.notes));
       return newState;
     },
     deleteNote: (state, action) => {
       const newState = {
         ...state,
-        notes: state.notes.filter(note => note.id !== parseInt(action.payload))
-      }
-      window.localStorage.setItem("notes", JSON.stringify(newState.notes))
+        notes: state.notes.filter(
+          (note) => note.id !== parseInt(action.payload)
+        ),
+      };
+      window.localStorage.setItem("notes", JSON.stringify(newState.notes));
       return newState;
     },
     completeNote: (state, action) => {
       const newState = {
-        ...state, 
+        ...state,
         notes: state.notes.map((note) => {
-          if(note.id === parseInt(action.payload)){
+          if (note.id === parseInt(action.payload)) {
             return {
               ...note,
               complete: !note.complete,
-            }
+            };
           }
           return note;
-        })
-      }
-      window.localStorage.setItem("notes", JSON.stringify(newState.notes))
+        }),
+      };
+      window.localStorage.setItem("notes", JSON.stringify(newState.notes));
       return newState;
     },
     setNoteFormState: (state, action) => {
       return {
         ...state,
-        noteForm: {...action.payload}
-      }
+        noteForm: { ...action.payload },
+      };
     },
     searchBy: (state, action) => {
       return {
         ...state,
-        filterNotesBy:{
+        filterNotesBy: {
           ...state.filterNotesBy,
-          text: action.payload
-        }
-      }
+          text: action.payload,
+        },
+      };
     },
     filterBy: (state, action) => {
       return {
         ...state,
-        filterNotesBy:{
+        filterNotesBy: {
           ...state.filterNotesBy,
-          category: action.payload
-        }
-      }
+          category: action.payload,
+        },
+      };
     },
     toggleShowCompletedNotesOnly: (state, action) => {
       return {
-        ...state, 
-        filterNotesBy:{
+        ...state,
+        filterNotesBy: {
           ...state.filterNotesBy,
-          showCompletedOnly: action.payload
-        }
-      }
-    }
+          showCompletedOnly: action.payload,
+        },
+      };
+    },
   },
-  
 });
 
-export const { addNotes, editNotes, deleteNote, completeNote, setNoteFormState, searchBy, filterBy, toggleShowCompletedNotesOnly } = notesReducers.actions;
+export const {
+  addNotes,
+  editNotes,
+  deleteNote,
+  completeNote,
+  setNoteFormState,
+  searchBy,
+  filterBy,
+  toggleShowCompletedNotesOnly,
+} = notesReducers.actions;
 export const notesReducer = notesReducers.reducer;
