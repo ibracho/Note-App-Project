@@ -1,5 +1,5 @@
-import "./Button.scss";
-// import "./button.css";
+// import './Button.scss';
+import "./button.css";
 
 function Button({ text, icon, buttonType, clickHandler }) {
   return (
