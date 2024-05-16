@@ -1,0 +1,23 @@
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group__label-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-group__label-container label {
+    margin-bottom: 0.3125rem;
+}
+
+.input-group__word-count--over {
+    color: #42A5F5;
+}
+
+.input-group__error {
+    font-size: 0.75rem;
+    color: #42A5F5;
+    margin-top: 0.5rem;
+}

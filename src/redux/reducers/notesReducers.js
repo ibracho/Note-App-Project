@@ -14,7 +14,7 @@ const initialState = {
   },
   categories: [
     { value: "home", displayValue: "Home" },
-    { value: "business", displayValue: "Business" },
+    { value: "homework", displayValue: "Homework" },
     { value: "personal", displayValue: "Personal" },
   ],
 };
