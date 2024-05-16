@@ -5,7 +5,7 @@ const express = require('express'); //express library performs server functional
 const cors = require('cors'); //cors control our app's security
 const { MongoClient } = require('mongodb'); //import the client from the mongodb library
 require('dotenv').config(); //configure .env usage
-require('mongoose');
+const mongoose = require('mongoose');
 
 //create express app
 const app = express(); //express app
@@ -14,28 +14,10 @@ app.use(express.json()); //allows ability to parse incoming JSON
 
 //define variables
 const URI = process.env.ConnectionString; //connection string to local mongodb server
+const PORT = process.env.PORT; // port
 const client = new MongoClient(URI); //handles db connection
-// be sure to make sure the schema is correct
-// be sure to make sure the schema is correct
-// be sure to make sure the schema is correct
-// be sure to make sure the schema is correct
-// be sure to make sure the schema is correct
-// be sure to make sure the schema is correct
-// be sure to make sure the schema is correct
-// be sure to make sure the schema is correct
+
 const Note = require('./Schema.js')
-// be sure to make sure the schema is correct
-// be sure to make sure the schema is correct
-// be sure to make sure the schema is correct
-// be sure to make sure the schema is correct
-// be sure to make sure the schema is correct
-// be sure to make sure the schema is correct
-// be sure to make sure the schema is correct
-// be sure to make sure the schema is correct
-// be sure to make sure the schema is correct
-// be sure to make sure the schema is correct
-// be sure to make sure the schema is correct
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -44,7 +26,9 @@ const Note = require('./Schema.js')
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 
-// this is the entire GET route, for retrieving notes
+// FROM ATLAS
+
+// this is the entire GET route, for retrieving notes from Atlas
 // this will run when user logs in, userID will be generated(assigned?) by Auth0 and sent to backend(here)
 
 //wrap db calls within a function. 
@@ -68,10 +52,17 @@ async function getNotes(userID) {
 }
 
 //configure a route to the base url
-app.get('/GET', async (req, res) => {
-    res.send(await getNotes(userID));
-    //userID here has to check data given from frontend, check for userID and throw it into the function as a variable
-    
+
+app.get('/FromAtlas', async (req, res) => {
+    notesArray = req.body // make sure this is JSON
+    userID = notesArray[0].userID // Obtain userID from request
+    try {
+        const notes = await getNotes(userID);
+        res.send(notes);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error fetching notes');
+    }
 });
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -82,6 +73,7 @@ app.get('/GET', async (req, res) => {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // i hope you're having a lovely day :3
+// i am thank you :~>
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -89,32 +81,37 @@ app.get('/GET', async (req, res) => {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// TO ATLAS
 
 // this function should try to go to the Collection named NoteDB
 // then the database with a name equal to the userID
 // could just take this routing from the function above or figure out how to do it in the URL itself
-async function saveNotes(userID) {
+async function saveNotes(userID, array) {
     try {
+        var mongooseArray = [] // array that holds the notes that fit the mongoose schema
         console.log(URI + '/' + userID)
         await mongoose.connect(URI + '/' + userID);
-        const person = new Note({ name: newChamp.name, role: newChamp.role });
-        // new Note({}) is a function taking the Schema specified in Schema.js
-        // when you pull the data from frontend make sure the data matches the schema
-        // and then figure out if new Note({}) already runs through the full array or if you gotta get fancy with it
-        await person.save().then(() => console.log('new champ saved'));
+        for (let i = 0; i < array.length; i++) {
+            const noteObject = array[i];
+            const dbNote = new Note({ title: noteObject.title, category: noteObject.category , description: noteObject.description , date: noteObject.date , completed: noteObject.complete });
+            await dbNote.save().then(() => console.log('Note ' + noteObject.id + ' saved'))
+            // mongooseArray.push(dbNote); // push converted notes into array
+        };
+        // await mongooseArray.insertMany().then(() => console.log('notes saved')); // attempt to write entire array to atlas
     } catch(e) {
-        console.log(e);
+        console.error(e);
+        throw e;
     } finally {
         await mongoose.disconnect();
     }
 }
 
-app.post('/POST', async (req, res) => {
+app.post('/ToAtlas', async (req, res) => {
+    let array = req.body;
+    let userID = 'User1' // take user's ID from first note in the array, might change later
   try {
-    await parseNotes(req.body)
-    // this will return a proper array with the notes, might not need to be a whole function
-    // this function doesn't exist yet
-    await saveNotes(req.body) // figure out how to go through a whole array and fit it into a proper schema
+    await saveNotes(userID, array) // figure out how to go through a whole array and fit it into a proper schema
     // worst case: every note is parsed (fit into Mongo/Mongoose Schema) individually, then added to a new array (yet to be created), this array is then sent to mongo?
     // ideally: Schema syntax will already go through full array, or there is a seperate function for it, OR we can create a for loop/map every part of the array
     res.send('Notes Saved To Cloud');
@@ -131,7 +128,8 @@ app.post('/POST', async (req, res) => {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
 //start the server
-app.listen(3000, ()=> {
-    console.log('App running on: '+'http://localhost:3000/GET');
+app.listen(PORT, ()=> {
+    console.log('App running on: '+'http://localhost:'+ PORT);
 })

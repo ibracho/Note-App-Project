@@ -10,6 +10,27 @@ import { connect } from "react-redux";
 import { useState } from 'react';
 import TabsContainer from './components/molecules/TabsContainer/TabsContainer';
 import EmptyState from './components/organisms/EmptyState/EmptyState';
+import axios from 'axios';
+
+
+// import ability to check store
+// console log notes array
+import store from "./redux/store";
+
+let currentArray = store.getState().notes
+console.log(store.getState().notes)
+axios.post('http://localhost:3010/ToAtlas', currentArray)
+.then(function (response) {
+  console.log(response);
+})
+.catch(function (error) {
+  console.log(error);
+});
+//
+//
+//
+//
+//
 
 function App(props) {
   //create state for form
@@ -19,6 +40,9 @@ function App(props) {
     const noteId = e.target.closest('.note') ? e.target.closest('.note').getAttribute("note-id") : "";
     setIsDeleteNoteFormOpen({isFormVisible: !isDeleteNoteFormOpen.isFormVisible, noteIdToDelete: noteId});
   }
+
+
+
   return (
     <div className="App">
         <Searchbar />
