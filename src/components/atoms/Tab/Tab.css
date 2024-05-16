@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.tab {
+    color: rgba(33, 33, 33, 0.60);
+    font-size: 1rem;
+    padding: 0.625rem;
+    background-color: transparent;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .tab {
+        padding: 1rem;
+    }
+}
+
+.tab:hover {
+    color: rgba(33, 33, 33, 0.87);
+}
+
+.tab--selected {
+    color: #42A5F5;
+    border-bottom: 2px solid #42A5F5;
+}
+
+.tab--selected:hover {
+    color: #42A5F5;
+}
