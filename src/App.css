@@ -1,0 +1,11 @@
+@import './globalStyles/global.css';
+
+.App .container {
+    padding: 1rem;
+}
+
+@media (min-width: 768px) {
+    .App .container {
+        padding: 2rem;
+    }
+}

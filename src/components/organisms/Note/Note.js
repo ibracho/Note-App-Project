@@ -1,7 +1,7 @@
 import NotesCategory from "../../atoms/NotesCategory/NotesCategory";
 import Button from "../../atoms/Button/Button";
 import Icon from "../../atoms/Icon/Icon";
-import "./Note.scss";
+import "./Note.css";
 
 function Note({
   id,

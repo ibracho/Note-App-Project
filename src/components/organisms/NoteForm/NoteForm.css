@@ -1,0 +1,64 @@
+@import '../../../globalStyles/mixing.css';
+
+.new-note {
+    z-index: 1;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1.5rem;
+    width: 90%;
+}
+
+@media (min-width: 48rem) {
+    .new-note {
+        width: auto;
+    }
+}
+
+.new-note__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.new-note__header svg {
+    cursor: pointer;
+}
+
+.new-note__input-groups {
+    display: flex;
+    flex-direction: column;
+}
+
+.new-note__input-groups--space-between {
+    justify-content: space-between;
+}
+
+.new-note__input-groups--flex-end {
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+    flex-direction: column-reverse;
+}
+
+@media (min-width: 48rem) {
+    .new-note__input-groups {
+        flex-direction: row;
+        width: 37.5rem;
+    }
+}
+
+.new-note__input-groups .input-group {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 48rem) {
+    .new-note__input-groups .input-group {
+        width: 48%;
+    }
+}

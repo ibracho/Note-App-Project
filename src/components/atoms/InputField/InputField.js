@@ -1,4 +1,3 @@
-// import "./InputField.scss";
 import "./InputField.css";
 import searchIcon from "../../../assets/icons/search.svg";
 

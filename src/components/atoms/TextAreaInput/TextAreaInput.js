@@ -1,4 +1,3 @@
-// import './TextAreaInput.scss';
 import "./TextAreaInput.css";
 
 function TextAreaInput({

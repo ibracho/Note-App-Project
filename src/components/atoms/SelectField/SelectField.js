@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import './SelectField.scss';
 import "./SelectField.css";
 import Icon from "../Icon/Icon";
 

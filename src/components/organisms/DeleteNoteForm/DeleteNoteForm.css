@@ -1,0 +1,50 @@
+@import '../../../globalStyles/mixing.css';
+
+.delete-note {
+    z-index: 1;
+    background-color: #EEEEEE;
+    border-radius: 1rem;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1.5rem;
+    width: 90%;
+}
+
+@media (min-width: 48rem) {
+    .delete-note {
+        width: auto;
+    }
+}
+
+.delete-note__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.delete-note__header svg {
+    cursor: pointer;
+}
+
+.delete-note__header .button {
+    padding: 0;
+}
+
+.delete-note__text {
+    margin-bottom: 1.5rem;
+}
+
+.delete-note__ctas {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+}
+
+@media (min-width: 48rem) {
+    .delete-note__ctas {
+        flex-direction: row;
+    }
+}

@@ -1,0 +1,23 @@
+.searchbar {
+    background-color: #ffff;
+    padding: 1.0625rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0rem 0.25rem 1.25rem 0rem rgba(0, 0, 0, 0.15);
+}
+
+.searchbar .input {
+    margin-right: 0.625rem;
+    width: 80%;
+}
+
+.searchbar .button--icon {
+    margin-left: -3.4375rem;
+    margin-right: 1.5rem;
+
+}
+
+.searchbar--empty .button--icon {
+    display: none;
+}

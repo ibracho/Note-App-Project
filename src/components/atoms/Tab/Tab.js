@@ -1,4 +1,3 @@
-// import './Tab.scss';
 import "./Tab.css";
 
 function Tab({ displayValue, selected, value, tabIndex, handleTabClick }) {

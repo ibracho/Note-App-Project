@@ -1,4 +1,3 @@
-// import './NotesCategory.scss';
 import "./NotesCategory.css";
 
 function NotesCategory({ category }) {

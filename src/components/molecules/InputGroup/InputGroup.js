@@ -1,4 +1,3 @@
-// import './InputGroup.scss';
 import "./InputGroup.css";
 
 function InputGroup({
