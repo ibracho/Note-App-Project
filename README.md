@@ -8,8 +8,6 @@ Make sure to install the following dependencies:
 
 ### `npm install @reduxjs/toolkit`
 
-### `npm install sass`
-
 Now you can start the project!!
 
 ### `npm start`
